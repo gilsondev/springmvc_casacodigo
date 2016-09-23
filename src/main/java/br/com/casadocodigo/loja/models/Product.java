@@ -1,8 +1,16 @@
 package br.com.casadocodigo.loja.models;
 
+import javax.persistence.*;
+
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String title;
 
+    @Lob
     private String description;
 
     private int pages;
@@ -34,5 +42,13 @@ public class Product {
     @Override
     public String toString() {
         return "[Produto: " + this.title + "]";
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
