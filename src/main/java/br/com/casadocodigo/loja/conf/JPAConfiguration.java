@@ -2,10 +2,14 @@ package br.com.casadocodigo.loja.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -15,19 +19,30 @@ import java.util.Properties;
  * a classe {@link LocalContainerEntityManagerFactoryBean} do
  * Spring ORM. Ele abstrai as configurações que normalmente
  * é feito pelo arquivo persistence.xml.
+ *
+ * A anotação {@link EnableTransactionManagement} do Spring
+ * indica que vamos usar o controle transacional do framework.
  */
+@EnableTransactionManagement
 public class JPAConfiguration {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"br.com.casadocodigo.local.models"});
+        em.setPackagesToScan("br.com.casadocodigo.local.models");
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaProperties(additionalProperties());
 
         return em;
+    }
+    @Bean
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(emf);
+
+        return transactionManager;
     }
 
     /**
