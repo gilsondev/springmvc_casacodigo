@@ -17,29 +17,29 @@ import org.springframework.web.servlet.ModelAndView;
  * métodos que precisam de suporte a transações.
  */
 @Controller
+@RequestMapping("/produtos")
 @Transactional
 public class ProductsController {
 
     @Autowired
     private ProductDAO productDAO;
 
-    @RequestMapping(value="/produtos", method= RequestMethod.GET)
+    @RequestMapping(value="/", method= RequestMethod.GET)
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView("products/list");
         modelAndView.addObject("products", productDAO.list());
         return modelAndView;
     }
 
-    @RequestMapping("/produtos/form")
+    @RequestMapping("/form")
     public ModelAndView form() {
         ModelAndView modelAndView = new ModelAndView("products/form");
         modelAndView.addObject("types", BookType.values());
         return modelAndView;
     }
 
-    @RequestMapping(value="/produtos", method=RequestMethod.POST)
+    @RequestMapping(value="/", method=RequestMethod.POST)
     public String save(Product product) {
-        System.out.println("Cadastrando o produto: " + product);
         productDAO.save(product);
         return "products/ok";
     }
