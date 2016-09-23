@@ -4,9 +4,17 @@ import br.com.casadocodigo.loja.daos.ProductDAO;
 import br.com.casadocodigo.loja.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * Classe que faz o papel de controller
+ * para a funcionalidade de produtos. Ele recebe
+ * a anotação {@link Transactional} para definir que existem
+ * métodos que precisam de suporte a transações.
+ */
 @Controller
+@Transactional
 public class ProductsController {
 
     @Autowired
