@@ -1,6 +1,10 @@
 package br.com.casadocodigo.loja.models;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,5 +59,13 @@ public class Product {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Price> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(List<Price> prices) {
+        this.prices = prices;
     }
 }

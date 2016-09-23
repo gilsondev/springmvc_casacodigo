@@ -10,4 +10,20 @@ public class Price {
     private BigDecimal value;
 
     private BookType bookType;
+
+    public BigDecimal getValue() {
+        return value;
+    }
+
+    public void setValue(BigDecimal value) {
+        this.value = value;
+    }
+
+    public BookType getBookType() {
+        return bookType;
+    }
+
+    public void setBookType(BookType bookType) {
+        this.bookType = bookType;
+    }
 }
