@@ -1,0 +1,9 @@
+version: '2'
+services:
+  database:
+    build: ./src/main/resources/docker/database
+    image: casadocodigo_mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - /var/mysql/casadocodigo:/var/lib/mysql
