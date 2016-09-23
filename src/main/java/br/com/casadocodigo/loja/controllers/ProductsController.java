@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * Classe que faz o papel de controller
@@ -39,8 +40,9 @@ public class ProductsController {
     }
 
     @RequestMapping(value="/", method=RequestMethod.POST)
-    public String save(Product product) {
+    public String save(Product product, RedirectAttributes redirectAttributes) {
         productDAO.save(product);
-        return "products/ok";
+        redirectAttributes.addAttribute("sucesso", "Produto cadastrado com sucesso");
+        return "redirect:produtos";
     }
 }
