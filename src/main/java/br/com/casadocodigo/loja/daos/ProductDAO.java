@@ -13,10 +13,20 @@ public class ProductDAO {
     @PersistenceContext
     private EntityManager manager;
 
+    /**
+     * Listando os produtos cadastrados
+     *
+     * @return Lista de {@link Product}
+     */
     public List<Product> list() {
         return manager.createQuery("select distinct(p) from Product p join fetch p.prices", Product.class).getResultList();
     }
 
+    /**
+     * Cadastrando um novo produto
+     *
+     * @param product Dados do produto a ser inserido no banco de dados
+     */
     public void save(Product product) {
         manager.persist(product);
     }
