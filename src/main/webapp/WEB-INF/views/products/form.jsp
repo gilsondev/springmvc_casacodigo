@@ -1,3 +1,4 @@
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -6,6 +7,15 @@
     <title>Cadastro	de produtos</title>
 </head>
 <body>
+
+<spring:hasBindErrors name="product">
+    <ul>
+        <c:forEach var="error" items="${errors.allErrors}">
+            <li>${error.code}</li>
+        </c:forEach>
+    </ul>
+</spring:hasBindErrors>
+
 <form method="post" action="/casadocodigo/produtos">
     <div>
         <label for="title">Titulo</label>
