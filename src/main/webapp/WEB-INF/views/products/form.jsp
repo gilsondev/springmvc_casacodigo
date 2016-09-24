@@ -11,7 +11,7 @@
 <spring:hasBindErrors name="product">
     <ul>
         <c:forEach var="error" items="${errors.allErrors}">
-            <li>${error.code}</li>
+            <li><spring:message code="${error.code}" text="${error.defaultMessage}"/></li>
         </c:forEach>
     </ul>
 </spring:hasBindErrors>
