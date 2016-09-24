@@ -16,7 +16,7 @@
     </ul>
 </spring:hasBindErrors>
 
-<form method="post" action="/casadocodigo/produtos">
+<form method="post" action="${spring:mvcUrl("saveProduct").build()}">
     <div>
         <label for="title">Titulo</label>
         <input type="text" name="title"	id="title"/>
