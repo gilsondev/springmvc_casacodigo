@@ -2,9 +2,11 @@ package br.com.casadocodigo.loja.models;
 
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import javax.validation.constraints.Min;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,11 +16,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private String title;
 
     @Lob
+    @NotBlank
     private String description;
 
+    @Min(30)
     private int pages;
 
     @ElementCollection

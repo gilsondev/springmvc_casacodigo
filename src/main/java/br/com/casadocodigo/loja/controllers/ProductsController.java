@@ -34,11 +34,14 @@ public class ProductsController {
     /**
      * Método anotado com {@link InitBinder} será
      * chamado sempre que um request cair no controller.
+     *
+     * OBS.: Usando Bean validator
      */
-    @InitBinder
-    protected void initBinder(WebDataBinder binder) {
-        binder.setValidator(new ProductValidator());
-    }
+
+    // @InitBinder
+    // protected void initBinder(WebDataBinder binder) {
+    //     binder.setValidator(new ProductValidator());
+    // }
 
     @RequestMapping(value="/", method= RequestMethod.GET)
     public ModelAndView list() {
