@@ -20,17 +20,17 @@
 <form:form method="post" action="${spring:mvcUrl("saveProduct").build()}" commandName="product">
     <div>
         <label for="title">Titulo</label>
-        <input type="text" name="title"	id="title"/>
+        <form:input path="title"/>
         <form:errors path="title"/>
     </div>
     <div>
         <label for="description">Descrição</label>
-        <textarea rows="10"	cols="20" name="description" id="description"> </textarea>
+        <form:textarea path="description" rows="10" cols="20" />
         <form:errors path="description"/>
     </div>
     <div>
         <label for="pages">Número de paginas</label>
-        <input type="text" name="pages"	id="pages"/>
+        <form:input path="pages" />
         <form:errors path="pages"/>
     </div>
     <c:forEach items="${types}" var="bookType" varStatus="status">
