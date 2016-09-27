@@ -37,7 +37,6 @@ public class ProductsController {
      *
      * OBS.: Usando Bean validator
      */
-
     // @InitBinder
     // protected void initBinder(WebDataBinder binder) {
     //     binder.setValidator(new ProductValidator());
