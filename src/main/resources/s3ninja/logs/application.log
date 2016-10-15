@@ -1,0 +1,381 @@
+2016-10-15 17:19:57,167 INFO  [|main] sirius - Java HotSpot(TM) 64-Bit Server VM (1.8, Oracle Corporation, 25.101-b13)
+2016-10-15 17:19:57,168 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:19:57,168 INFO  [|main] sirius - System is STARTING...
+2016-10-15 17:19:57,169 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:19:57,169 INFO  [|main] sirius - Loading config...
+2016-10-15 17:19:57,169 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:19:57,187 INFO  [|main] sirius - using application.conf from classpath...
+2016-10-15 17:19:57,227 INFO  [|main] sirius - instance.conf not present work in directory
+2016-10-15 17:19:57,227 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:19:57,227 INFO  [|main] sirius - Starting the system...
+2016-10-15 17:19:57,227 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:19:57,353 INFO  [|main] sirius - Initializing the log system:
+2016-10-15 17:19:57,354 INFO  [|main] sirius - * Setting velocity to: WARN
+2016-10-15 17:19:57,354 INFO  [|main] sirius - * Setting ignored to: OFF
+2016-10-15 17:19:57,355 INFO  [|main] sirius - Enabled 2 of 2 frameworks...
+2016-10-15 17:19:57,355 INFO  [|main] sirius - Active Customizations: []
+2016-10-15 17:19:57,393 INFO  [|main] di - Initializing the MicroKernel....
+2016-10-15 17:19:57,393 INFO  [|main] di - ~ Scanning .class files...
+2016-10-15 17:19:57,574 INFO  [|main] di - ~ Applying 1 class load actions on 332 classes...
+2016-10-15 17:19:57,639 INFO  [|main] di - ~ Initializing static parts-references...
+2016-10-15 17:19:57,695 INFO  [|main] di - ~ Initializing parts...
+2016-10-15 17:19:57,741 INFO  [|default-0] sirius - Starting: async (Async Execution Engine)
+2016-10-15 17:19:57,742 INFO  [|default-2] sirius - Starting: web (netty HTTP Server)
+2016-10-15 17:19:57,743 INFO  [|default-2] web - Initializing netty at port 9444
+2016-10-15 17:19:57,743 INFO  [|default-1] sirius - Starting: Cluster
+2016-10-15 17:19:57,743 INFO  [|default-3] sirius - Starting: Rythm-Engine
+2016-10-15 17:19:57,744 INFO  [|default-4] sirius - Starting: timer (System Timer Services)
+2016-10-15 17:19:57,783 INFO  [|default-2] web - Using Linux syscall EPOLL for optimal performance!
+2016-10-15 17:19:57,865 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:19:57,865 INFO  [|main] sirius - System is UP and RUNNING - 741 Milliseconds
+2016-10-15 17:19:57,865 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:08,282 ERROR [|timer-0] sigar - An unexpected exception occurred: Permission denied (org.hyperic.sigar.SigarPermissionDeniedException)
+sirius.kernel.health.HandledException: An unexpected exception occurred: Permission denied (org.hyperic.sigar.SigarPermissionDeniedException)
+	at sirius.kernel.health.Exceptions$ErrorHandler.handle(Exceptions.java:218)
+	at sirius.kernel.health.Exceptions.handle(Exceptions.java:333)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gather(SystemMetricProvider.java:69)
+	at sirius.kernel.health.metrics.Metrics.runTimer(Metrics.java:78)
+	at sirius.kernel.timer.TimerService.lambda$executeTask$46(TimerService.java:311)
+	at sirius.kernel.async.ExecutionBuilder$TaskWrapper.run(ExecutionBuilder.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.hyperic.sigar.SigarPermissionDeniedException: Permission denied
+	at org.hyperic.sigar.FileSystemUsage.gather(Native Method)
+	at org.hyperic.sigar.FileSystemUsage.fetch(FileSystemUsage.java:30)
+	at org.hyperic.sigar.Sigar.getMountedFileSystemUsage(Sigar.java:712)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gatherFS(SystemMetricProvider.java:105)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gather(SystemMetricProvider.java:66)
+	... 6 more
+2016-10-15 17:20:10,263 INFO  [|main] sirius - Stopping Sirius
+2016-10-15 17:20:10,263 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:10,263 INFO  [|main] sirius - Stopping: timer (System Timer Services)
+2016-10-15 17:20:10,263 INFO  [|main] sirius - Stopping: Rythm-Engine
+2016-10-15 17:20:10,265 INFO  [|main] org.rythmengine.RythmEngine - Shutting down Rythm Engine: [re-ACo]
+2016-10-15 17:20:10,265 INFO  [|main] sirius - Stopping: web (netty HTTP Server)
+2016-10-15 17:20:10,272 INFO  [|main] sirius - Stopping: Cluster
+2016-10-15 17:20:10,272 INFO  [|main] sirius - Stopping: async (Async Execution Engine)
+2016-10-15 17:20:10,272 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:10,273 INFO  [|main] sirius - Awaiting system halt...
+2016-10-15 17:20:10,273 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:10,286 INFO  [|main] sirius - Terminated: timer (System Timer Services) (Took: 10 us)
+2016-10-15 17:20:10,286 INFO  [|main] sirius - Terminated: Rythm-Engine (Took: 3 us)
+2016-10-15 17:20:12,493 INFO  [|main] sirius - Terminated: web (netty HTTP Server) (Took: 2 Seconds, 206 Milliseconds)
+2016-10-15 17:20:12,493 INFO  [|main] sirius - Terminated: Cluster (Took: 2 us)
+2016-10-15 17:20:12,493 INFO  [|main] sirius - Terminated: async (Async Execution Engine) (Took: 281 us)
+2016-10-15 17:20:12,493 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:12,493 INFO  [|main] sirius - System halted! - Thread State
+2016-10-15 17:20:12,493 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:12,493 INFO  [|main] sirius - STATE                   ID                                                  NAME
+2016-10-15 17:20:12,495 INFO  [|main] sirius - TIMED_WAITING           29                               globalEventExecutor-1-2
+2016-10-15 17:20:12,495 INFO  [|main] sirius - RUNNABLE                 4                                     Signal Dispatcher
+2016-10-15 17:20:12,495 INFO  [|main] sirius - WAITING                  3                                             Finalizer
+2016-10-15 17:20:12,496 INFO  [|main] sirius - WAITING                  2                                     Reference Handler
+2016-10-15 17:20:12,496 INFO  [|main] sirius - RUNNABLE                 1                                                  main
+2016-10-15 17:20:12,496 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:21,311 INFO  [|main] sirius - Java HotSpot(TM) 64-Bit Server VM (1.8, Oracle Corporation, 25.101-b13)
+2016-10-15 17:20:21,312 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:21,312 INFO  [|main] sirius - System is STARTING...
+2016-10-15 17:20:21,312 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:21,312 INFO  [|main] sirius - Loading config...
+2016-10-15 17:20:21,312 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:21,328 INFO  [|main] sirius - using application.conf from classpath...
+2016-10-15 17:20:21,364 INFO  [|main] sirius - instance.conf not present work in directory
+2016-10-15 17:20:21,364 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:21,364 INFO  [|main] sirius - Starting the system...
+2016-10-15 17:20:21,365 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:21,450 INFO  [|main] sirius - Initializing the log system:
+2016-10-15 17:20:21,453 INFO  [|main] sirius - * Setting velocity to: WARN
+2016-10-15 17:20:21,454 INFO  [|main] sirius - * Setting ignored to: OFF
+2016-10-15 17:20:21,454 INFO  [|main] sirius - Enabled 2 of 2 frameworks...
+2016-10-15 17:20:21,454 INFO  [|main] sirius - Active Customizations: []
+2016-10-15 17:20:21,502 INFO  [|main] di - Initializing the MicroKernel....
+2016-10-15 17:20:21,502 INFO  [|main] di - ~ Scanning .class files...
+2016-10-15 17:20:21,661 INFO  [|main] di - ~ Applying 1 class load actions on 332 classes...
+2016-10-15 17:20:21,700 INFO  [|main] di - ~ Initializing static parts-references...
+2016-10-15 17:20:21,737 INFO  [|main] di - ~ Initializing parts...
+2016-10-15 17:20:21,771 INFO  [|default-0] sirius - Starting: async (Async Execution Engine)
+2016-10-15 17:20:21,771 INFO  [|default-1] sirius - Starting: Cluster
+2016-10-15 17:20:21,771 INFO  [|default-2] sirius - Starting: web (netty HTTP Server)
+2016-10-15 17:20:21,771 INFO  [|default-2] web - Initializing netty at port 9444
+2016-10-15 17:20:21,777 INFO  [|default-3] sirius - Starting: Rythm-Engine
+2016-10-15 17:20:21,786 INFO  [|default-4] sirius - Starting: timer (System Timer Services)
+2016-10-15 17:20:21,805 INFO  [|default-2] web - Using Linux syscall EPOLL for optimal performance!
+2016-10-15 17:20:21,878 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:21,878 INFO  [|main] sirius - System is UP and RUNNING - 608 Milliseconds
+2016-10-15 17:20:21,878 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:23,253 INFO  [|main] sirius - Stopping Sirius
+2016-10-15 17:20:23,253 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:23,253 INFO  [|main] sirius - Stopping: timer (System Timer Services)
+2016-10-15 17:20:23,253 INFO  [|main] sirius - Stopping: Rythm-Engine
+2016-10-15 17:20:23,255 INFO  [|main] org.rythmengine.RythmEngine - Shutting down Rythm Engine: [re-JFn]
+2016-10-15 17:20:23,255 INFO  [|main] sirius - Stopping: web (netty HTTP Server)
+2016-10-15 17:20:23,259 INFO  [|main] sirius - Stopping: Cluster
+2016-10-15 17:20:23,259 INFO  [|main] sirius - Stopping: async (Async Execution Engine)
+2016-10-15 17:20:23,259 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:23,259 INFO  [|main] sirius - Awaiting system halt...
+2016-10-15 17:20:23,264 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:23,271 INFO  [|main] sirius - Terminated: timer (System Timer Services) (Took: 9 us)
+2016-10-15 17:20:23,271 INFO  [|main] sirius - Terminated: Rythm-Engine (Took: 2 us)
+2016-10-15 17:20:25,466 INFO  [|main] sirius - Terminated: web (netty HTTP Server) (Took: 2 Seconds, 195 Milliseconds)
+2016-10-15 17:20:25,467 INFO  [|main] sirius - Terminated: Cluster (Took: 2 us)
+2016-10-15 17:20:25,467 INFO  [|main] sirius - Terminated: async (Async Execution Engine) (Took: 226 us)
+2016-10-15 17:20:25,467 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:25,467 INFO  [|main] sirius - System halted! - Thread State
+2016-10-15 17:20:25,467 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:20:25,467 INFO  [|main] sirius - STATE                   ID                                                  NAME
+2016-10-15 17:20:25,469 INFO  [|main] sirius - TIMED_WAITING           28                               globalEventExecutor-1-2
+2016-10-15 17:20:25,469 INFO  [|main] sirius - RUNNABLE                 4                                     Signal Dispatcher
+2016-10-15 17:20:25,469 INFO  [|main] sirius - WAITING                  3                                             Finalizer
+2016-10-15 17:20:25,469 INFO  [|main] sirius - WAITING                  2                                     Reference Handler
+2016-10-15 17:20:25,469 INFO  [|main] sirius - RUNNABLE                 1                                                  main
+2016-10-15 17:20:25,469 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:53,891 INFO  [|main] sirius - Java HotSpot(TM) 64-Bit Server VM (1.8, Oracle Corporation, 25.101-b13)
+2016-10-15 17:21:53,892 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:53,892 INFO  [|main] sirius - System is STARTING...
+2016-10-15 17:21:53,892 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:53,892 INFO  [|main] sirius - Loading config...
+2016-10-15 17:21:53,892 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:53,911 INFO  [|main] sirius - using application.conf from classpath...
+2016-10-15 17:21:53,945 INFO  [|main] sirius - instance.conf not present work in directory
+2016-10-15 17:21:53,945 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:53,945 INFO  [|main] sirius - Starting the system...
+2016-10-15 17:21:53,945 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:54,023 INFO  [|main] sirius - Initializing the log system:
+2016-10-15 17:21:54,026 INFO  [|main] sirius - * Setting velocity to: WARN
+2016-10-15 17:21:54,026 INFO  [|main] sirius - * Setting ignored to: OFF
+2016-10-15 17:21:54,027 INFO  [|main] sirius - Enabled 2 of 2 frameworks...
+2016-10-15 17:21:54,027 INFO  [|main] sirius - Active Customizations: []
+2016-10-15 17:21:54,065 INFO  [|main] di - Initializing the MicroKernel....
+2016-10-15 17:21:54,065 INFO  [|main] di - ~ Scanning .class files...
+2016-10-15 17:21:54,239 INFO  [|main] di - ~ Applying 1 class load actions on 332 classes...
+2016-10-15 17:21:54,277 INFO  [|main] di - ~ Initializing static parts-references...
+2016-10-15 17:21:54,315 INFO  [|main] di - ~ Initializing parts...
+2016-10-15 17:21:54,347 INFO  [|default-0] sirius - Starting: async (Async Execution Engine)
+2016-10-15 17:21:54,347 INFO  [|default-1] sirius - Starting: Cluster
+2016-10-15 17:21:54,347 INFO  [|default-2] sirius - Starting: web (netty HTTP Server)
+2016-10-15 17:21:54,348 INFO  [|default-2] web - Initializing netty at port 9444
+2016-10-15 17:21:54,350 INFO  [|default-3] sirius - Starting: Rythm-Engine
+2016-10-15 17:21:54,356 INFO  [|default-4] sirius - Starting: timer (System Timer Services)
+2016-10-15 17:21:54,393 INFO  [|default-2] web - Using Linux syscall EPOLL for optimal performance!
+2016-10-15 17:21:54,466 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:54,467 INFO  [|main] sirius - System is UP and RUNNING - 619 Milliseconds
+2016-10-15 17:21:54,467 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:55,691 INFO  [|main] sirius - Stopping Sirius
+2016-10-15 17:21:55,693 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:55,693 INFO  [|main] sirius - Stopping: timer (System Timer Services)
+2016-10-15 17:21:55,693 INFO  [|main] sirius - Stopping: Rythm-Engine
+2016-10-15 17:21:55,694 INFO  [|main] org.rythmengine.RythmEngine - Shutting down Rythm Engine: [re-EJI]
+2016-10-15 17:21:55,695 INFO  [|main] sirius - Stopping: web (netty HTTP Server)
+2016-10-15 17:21:55,701 INFO  [|main] sirius - Stopping: Cluster
+2016-10-15 17:21:55,701 INFO  [|main] sirius - Stopping: async (Async Execution Engine)
+2016-10-15 17:21:55,701 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:55,702 INFO  [|main] sirius - Awaiting system halt...
+2016-10-15 17:21:55,705 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:55,711 INFO  [|main] sirius - Terminated: timer (System Timer Services) (Took: 8 us)
+2016-10-15 17:21:55,711 INFO  [|main] sirius - Terminated: Rythm-Engine (Took: 3 us)
+2016-10-15 17:21:57,903 INFO  [|main] sirius - Terminated: web (netty HTTP Server) (Took: 2 Seconds, 191 Milliseconds)
+2016-10-15 17:21:57,903 INFO  [|main] sirius - Terminated: Cluster (Took: 3 us)
+2016-10-15 17:21:57,904 INFO  [|main] sirius - Terminated: async (Async Execution Engine) (Took: 284 us)
+2016-10-15 17:21:57,904 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:57,904 INFO  [|main] sirius - System halted! - Thread State
+2016-10-15 17:21:57,904 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:21:57,904 INFO  [|main] sirius - STATE                   ID                                                  NAME
+2016-10-15 17:21:57,907 INFO  [|main] sirius - TIMED_WAITING           28                               globalEventExecutor-1-2
+2016-10-15 17:21:57,908 INFO  [|main] sirius - RUNNABLE                 4                                     Signal Dispatcher
+2016-10-15 17:21:57,908 INFO  [|main] sirius - WAITING                  3                                             Finalizer
+2016-10-15 17:21:57,908 INFO  [|main] sirius - WAITING                  2                                     Reference Handler
+2016-10-15 17:21:57,908 INFO  [|main] sirius - RUNNABLE                 1                                                  main
+2016-10-15 17:21:57,908 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:22:25,065 INFO  [|main] sirius - Java HotSpot(TM) 64-Bit Server VM (1.8, Oracle Corporation, 25.101-b13)
+2016-10-15 17:22:25,066 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:22:25,066 INFO  [|main] sirius - System is STARTING...
+2016-10-15 17:22:25,066 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:22:25,066 INFO  [|main] sirius - Loading config...
+2016-10-15 17:22:25,066 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:22:25,083 INFO  [|main] sirius - using application.conf from classpath...
+2016-10-15 17:22:25,110 INFO  [|main] sirius - instance.conf not present work in directory
+2016-10-15 17:22:25,110 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:22:25,110 INFO  [|main] sirius - Starting the system...
+2016-10-15 17:22:25,110 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:22:25,205 INFO  [|main] sirius - Initializing the log system:
+2016-10-15 17:22:25,206 INFO  [|main] sirius - * Setting velocity to: WARN
+2016-10-15 17:22:25,207 INFO  [|main] sirius - * Setting ignored to: OFF
+2016-10-15 17:22:25,207 INFO  [|main] sirius - Enabled 2 of 2 frameworks...
+2016-10-15 17:22:25,207 INFO  [|main] sirius - Active Customizations: []
+2016-10-15 17:22:25,260 INFO  [|main] di - Initializing the MicroKernel....
+2016-10-15 17:22:25,260 INFO  [|main] di - ~ Scanning .class files...
+2016-10-15 17:22:25,488 INFO  [|main] di - ~ Applying 1 class load actions on 332 classes...
+2016-10-15 17:22:25,539 INFO  [|main] di - ~ Initializing static parts-references...
+2016-10-15 17:22:25,584 INFO  [|main] di - ~ Initializing parts...
+2016-10-15 17:22:25,613 INFO  [|default-0] sirius - Starting: async (Async Execution Engine)
+2016-10-15 17:22:25,613 INFO  [|default-1] sirius - Starting: Cluster
+2016-10-15 17:22:25,614 INFO  [|default-2] sirius - Starting: web (netty HTTP Server)
+2016-10-15 17:22:25,614 INFO  [|default-2] web - Initializing netty at port 9444
+2016-10-15 17:22:25,616 INFO  [|default-3] sirius - Starting: Rythm-Engine
+2016-10-15 17:22:25,623 INFO  [|default-4] sirius - Starting: timer (System Timer Services)
+2016-10-15 17:22:25,645 INFO  [|default-2] web - Using Linux syscall EPOLL for optimal performance!
+2016-10-15 17:22:25,762 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:22:25,763 INFO  [|main] sirius - System is UP and RUNNING - 740 Milliseconds
+2016-10-15 17:22:25,763 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:22:36,141 ERROR [|timer-0] sigar - An unexpected exception occurred: Permission denied (org.hyperic.sigar.SigarPermissionDeniedException)
+sirius.kernel.health.HandledException: An unexpected exception occurred: Permission denied (org.hyperic.sigar.SigarPermissionDeniedException)
+	at sirius.kernel.health.Exceptions$ErrorHandler.handle(Exceptions.java:218)
+	at sirius.kernel.health.Exceptions.handle(Exceptions.java:333)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gather(SystemMetricProvider.java:69)
+	at sirius.kernel.health.metrics.Metrics.runTimer(Metrics.java:78)
+	at sirius.kernel.timer.TimerService.lambda$executeTask$46(TimerService.java:311)
+	at sirius.kernel.async.ExecutionBuilder$TaskWrapper.run(ExecutionBuilder.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.hyperic.sigar.SigarPermissionDeniedException: Permission denied
+	at org.hyperic.sigar.FileSystemUsage.gather(Native Method)
+	at org.hyperic.sigar.FileSystemUsage.fetch(FileSystemUsage.java:30)
+	at org.hyperic.sigar.Sigar.getMountedFileSystemUsage(Sigar.java:712)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gatherFS(SystemMetricProvider.java:105)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gather(SystemMetricProvider.java:66)
+	... 6 more
+2016-10-15 17:22:37,605 INFO  [|web-mvc-0] content-generator - Base directory: 'data/resources' (/home/gilson/Developer/Study/casacodigo_springmvc/s3ninja/data/resources) for local templates was not created yet. Will check every minute...
+2016-10-15 17:23:45,628 ERROR [|timer-0] sigar - An unexpected exception occurred: Permission denied (org.hyperic.sigar.SigarPermissionDeniedException)
+sirius.kernel.health.HandledException: An unexpected exception occurred: Permission denied (org.hyperic.sigar.SigarPermissionDeniedException)
+	at sirius.kernel.health.Exceptions$ErrorHandler.handle(Exceptions.java:218)
+	at sirius.kernel.health.Exceptions.handle(Exceptions.java:333)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gather(SystemMetricProvider.java:69)
+	at sirius.kernel.health.metrics.Metrics.runTimer(Metrics.java:78)
+	at sirius.kernel.timer.TimerService.lambda$executeTask$46(TimerService.java:311)
+	at sirius.kernel.async.ExecutionBuilder$TaskWrapper.run(ExecutionBuilder.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.hyperic.sigar.SigarPermissionDeniedException: Permission denied
+	at org.hyperic.sigar.FileSystemUsage.gather(Native Method)
+	at org.hyperic.sigar.FileSystemUsage.fetch(FileSystemUsage.java:30)
+	at org.hyperic.sigar.Sigar.getMountedFileSystemUsage(Sigar.java:712)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gatherFS(SystemMetricProvider.java:105)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gather(SystemMetricProvider.java:66)
+	... 6 more
+2016-10-15 17:24:45,626 ERROR [|timer-0] sigar - An unexpected exception occurred: Permission denied (org.hyperic.sigar.SigarPermissionDeniedException)
+sirius.kernel.health.HandledException: An unexpected exception occurred: Permission denied (org.hyperic.sigar.SigarPermissionDeniedException)
+	at sirius.kernel.health.Exceptions$ErrorHandler.handle(Exceptions.java:218)
+	at sirius.kernel.health.Exceptions.handle(Exceptions.java:333)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gather(SystemMetricProvider.java:69)
+	at sirius.kernel.health.metrics.Metrics.runTimer(Metrics.java:78)
+	at sirius.kernel.timer.TimerService.lambda$executeTask$46(TimerService.java:311)
+	at sirius.kernel.async.ExecutionBuilder$TaskWrapper.run(ExecutionBuilder.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.hyperic.sigar.SigarPermissionDeniedException: Permission denied
+	at org.hyperic.sigar.FileSystemUsage.gather(Native Method)
+	at org.hyperic.sigar.FileSystemUsage.fetch(FileSystemUsage.java:30)
+	at org.hyperic.sigar.Sigar.getMountedFileSystemUsage(Sigar.java:712)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gatherFS(SystemMetricProvider.java:105)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gather(SystemMetricProvider.java:66)
+	... 6 more
+2016-10-15 17:25:41,423 INFO  [|Thread-3] sirius - Stopping Sirius
+2016-10-15 17:25:41,423 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:25:41,424 INFO  [|Thread-3] sirius - Stopping: timer (System Timer Services)
+2016-10-15 17:25:41,424 INFO  [|Thread-3] sirius - Stopping: Rythm-Engine
+2016-10-15 17:25:41,425 INFO  [|Thread-3] sirius - Stopping: web (netty HTTP Server)
+2016-10-15 17:25:41,426 INFO  [|Thread-3] sirius - Stopping: Cluster
+2016-10-15 17:25:41,426 INFO  [|Thread-3] sirius - Stopping: async (Async Execution Engine)
+2016-10-15 17:25:41,427 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:25:41,427 INFO  [|Thread-3] sirius - Awaiting system halt...
+2016-10-15 17:25:41,427 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:25:41,431 INFO  [|Thread-3] sirius - Terminated: timer (System Timer Services) (Took: 6 us)
+2016-10-15 17:25:41,431 INFO  [|Thread-3] sirius - Terminated: Rythm-Engine (Took: 1 us)
+2016-10-15 17:25:43,636 INFO  [|Thread-3] sirius - Terminated: web (netty HTTP Server) (Took: 2 Seconds, 204 Milliseconds)
+2016-10-15 17:25:43,636 INFO  [|Thread-3] sirius - Terminated: Cluster (Took: 2 us)
+2016-10-15 17:25:43,636 INFO  [|Thread-3] sirius - Terminated: async (Async Execution Engine) (Took: 272 us)
+2016-10-15 17:25:43,636 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:25:43,636 INFO  [|Thread-3] sirius - System halted! - Thread State
+2016-10-15 17:25:43,636 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:25:43,637 INFO  [|Thread-3] sirius - STATE                   ID                                                  NAME
+2016-10-15 17:25:43,638 INFO  [|Thread-3] sirius - RUNNABLE                38                               globalEventExecutor-1-2
+2016-10-15 17:25:43,638 INFO  [|Thread-3] sirius - BLOCKED                 36                                        SIGINT handler
+2016-10-15 17:25:43,638 INFO  [|Thread-3] sirius - RUNNABLE                26                                              Thread-3
+2016-10-15 17:25:43,638 INFO  [|Thread-3] sirius - WAITING                 35                                        SIGINT handler
+2016-10-15 17:25:43,638 INFO  [|Thread-3] sirius - TIMED_WAITING           28                                threadDeathWatcher-2-1
+2016-10-15 17:25:43,638 INFO  [|Thread-3] sirius - RUNNABLE                 4                                     Signal Dispatcher
+2016-10-15 17:25:43,638 INFO  [|Thread-3] sirius - WAITING                  3                                             Finalizer
+2016-10-15 17:25:43,638 INFO  [|Thread-3] sirius - WAITING                  2                                     Reference Handler
+2016-10-15 17:25:43,638 INFO  [|Thread-3] sirius - RUNNABLE                 1                                                  main
+2016-10-15 17:25:43,638 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:30:07,922 INFO  [|main] sirius - Java HotSpot(TM) 64-Bit Server VM (1.8, Oracle Corporation, 25.101-b13)
+2016-10-15 17:30:07,924 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:30:07,924 INFO  [|main] sirius - System is STARTING...
+2016-10-15 17:30:07,924 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:30:07,924 INFO  [|main] sirius - Loading config...
+2016-10-15 17:30:07,924 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:30:07,951 INFO  [|main] sirius - using application.conf from classpath...
+2016-10-15 17:30:07,980 INFO  [|main] sirius - instance.conf not present work in directory
+2016-10-15 17:30:07,980 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:30:07,980 INFO  [|main] sirius - Starting the system...
+2016-10-15 17:30:07,980 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:30:08,070 INFO  [|main] sirius - Initializing the log system:
+2016-10-15 17:30:08,071 INFO  [|main] sirius - * Setting velocity to: WARN
+2016-10-15 17:30:08,072 INFO  [|main] sirius - * Setting ignored to: OFF
+2016-10-15 17:30:08,073 INFO  [|main] sirius - Enabled 2 of 2 frameworks...
+2016-10-15 17:30:08,073 INFO  [|main] sirius - Active Customizations: []
+2016-10-15 17:30:08,120 INFO  [|main] di - Initializing the MicroKernel....
+2016-10-15 17:30:08,120 INFO  [|main] di - ~ Scanning .class files...
+2016-10-15 17:30:08,286 INFO  [|main] di - ~ Applying 1 class load actions on 332 classes...
+2016-10-15 17:30:08,325 INFO  [|main] di - ~ Initializing static parts-references...
+2016-10-15 17:30:08,366 INFO  [|main] di - ~ Initializing parts...
+2016-10-15 17:30:08,398 INFO  [|default-0] sirius - Starting: async (Async Execution Engine)
+2016-10-15 17:30:08,398 INFO  [|default-1] sirius - Starting: Cluster
+2016-10-15 17:30:08,406 INFO  [|default-2] sirius - Starting: web (netty HTTP Server)
+2016-10-15 17:30:08,406 INFO  [|default-2] web - Initializing netty at port 9444
+2016-10-15 17:30:08,416 INFO  [|default-3] sirius - Starting: Rythm-Engine
+2016-10-15 17:30:08,422 INFO  [|default-4] sirius - Starting: timer (System Timer Services)
+2016-10-15 17:30:08,432 INFO  [|default-2] web - Using Linux syscall EPOLL for optimal performance!
+2016-10-15 17:30:08,516 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:30:08,517 INFO  [|main] sirius - System is UP and RUNNING - 635 Milliseconds
+2016-10-15 17:30:08,517 INFO  [|main] sirius - ---------------------------------------------------------
+2016-10-15 17:30:18,949 ERROR [|timer-0] sigar - An unexpected exception occurred: Permission denied (org.hyperic.sigar.SigarPermissionDeniedException)
+sirius.kernel.health.HandledException: An unexpected exception occurred: Permission denied (org.hyperic.sigar.SigarPermissionDeniedException)
+	at sirius.kernel.health.Exceptions$ErrorHandler.handle(Exceptions.java:218)
+	at sirius.kernel.health.Exceptions.handle(Exceptions.java:333)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gather(SystemMetricProvider.java:69)
+	at sirius.kernel.health.metrics.Metrics.runTimer(Metrics.java:78)
+	at sirius.kernel.timer.TimerService.lambda$executeTask$46(TimerService.java:311)
+	at sirius.kernel.async.ExecutionBuilder$TaskWrapper.run(ExecutionBuilder.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.hyperic.sigar.SigarPermissionDeniedException: Permission denied
+	at org.hyperic.sigar.FileSystemUsage.gather(Native Method)
+	at org.hyperic.sigar.FileSystemUsage.fetch(FileSystemUsage.java:30)
+	at org.hyperic.sigar.Sigar.getMountedFileSystemUsage(Sigar.java:712)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gatherFS(SystemMetricProvider.java:105)
+	at sirius.kernel.health.metrics.SystemMetricProvider.gather(SystemMetricProvider.java:66)
+	... 6 more
+2016-10-15 17:30:20,121 INFO  [|Thread-3] sirius - Stopping Sirius
+2016-10-15 17:30:20,121 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:30:20,130 INFO  [|Thread-3] sirius - Stopping: timer (System Timer Services)
+2016-10-15 17:30:20,130 INFO  [|Thread-3] sirius - Stopping: Rythm-Engine
+2016-10-15 17:30:20,136 INFO  [|Thread-3] sirius - Stopping: web (netty HTTP Server)
+2016-10-15 17:30:20,139 INFO  [|Thread-3] sirius - Stopping: Cluster
+2016-10-15 17:30:20,140 INFO  [|Thread-3] sirius - Stopping: async (Async Execution Engine)
+2016-10-15 17:30:20,140 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:30:20,140 INFO  [|Thread-3] sirius - Awaiting system halt...
+2016-10-15 17:30:20,140 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:30:20,144 INFO  [|Thread-3] sirius - Terminated: timer (System Timer Services) (Took: 6 us)
+2016-10-15 17:30:20,144 INFO  [|Thread-3] sirius - Terminated: Rythm-Engine (Took: 2 us)
+2016-10-15 17:30:22,342 INFO  [|Thread-3] sirius - Terminated: web (netty HTTP Server) (Took: 2 Seconds, 198 Milliseconds)
+2016-10-15 17:30:22,343 INFO  [|Thread-3] sirius - Terminated: Cluster (Took: 2 us)
+2016-10-15 17:30:22,343 INFO  [|Thread-3] sirius - Terminated: async (Async Execution Engine) (Took: 284 us)
+2016-10-15 17:30:22,343 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:30:22,343 INFO  [|Thread-3] sirius - System halted! - Thread State
+2016-10-15 17:30:22,343 INFO  [|Thread-3] sirius - ---------------------------------------------------------
+2016-10-15 17:30:22,343 INFO  [|Thread-3] sirius - STATE                   ID                                                  NAME
+2016-10-15 17:30:22,344 INFO  [|Thread-3] sirius - TIMED_WAITING           32                               globalEventExecutor-1-2
+2016-10-15 17:30:22,344 INFO  [|Thread-3] sirius - BLOCKED                 30                                        SIGINT handler
+2016-10-15 17:30:22,344 INFO  [|Thread-3] sirius - RUNNABLE                26                                              Thread-3
+2016-10-15 17:30:22,344 INFO  [|Thread-3] sirius - WAITING                 28                                        SIGINT handler
+2016-10-15 17:30:22,345 INFO  [|Thread-3] sirius - RUNNABLE                 4                                     Signal Dispatcher
+2016-10-15 17:30:22,345 INFO  [|Thread-3] sirius - WAITING                  3                                             Finalizer
+2016-10-15 17:30:22,345 INFO  [|Thread-3] sirius - WAITING                  2                                     Reference Handler
+2016-10-15 17:30:22,345 INFO  [|Thread-3] sirius - RUNNABLE                 1                                                  main
+2016-10-15 17:30:22,345 INFO  [|Thread-3] sirius - ---------------------------------------------------------
