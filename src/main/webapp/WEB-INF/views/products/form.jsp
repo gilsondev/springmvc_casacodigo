@@ -17,7 +17,7 @@
     </ul>
 </spring:hasBindErrors>
 
-<form:form method="post" action='${spring:mvcUrl("saveProduct").build()}' commandName="product">
+<form:form method="post" action='${spring:mvcUrl("saveProduct").build()}' commandName="product" enctype="multipart/form-data">
     <div>
         <label for="title">Titulo</label>
         <form:input path="title"/>
@@ -45,6 +45,11 @@
             <input type="hidden" name="prices[${status.index}].bookType" value="${bookType}">
         </div>
     </c:forEach>
+    <div>
+        <label for="summary">Sumario do Livro</label>
+        <input type="file" name="summary" />
+        <form:errors path="summaryPath" />
+    </div>
     <div>
         <input type="submit" value="Enviar">
     </div>

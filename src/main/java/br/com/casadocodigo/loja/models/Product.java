@@ -34,6 +34,8 @@ public class Product {
     @ElementCollection
     private List<Price> prices = new ArrayList<Price>();
 
+    private String summaryPath;
+
     public String getTitle() {
         return title;
     }
@@ -85,5 +87,13 @@ public class Product {
 
     public void setReleaseDate(Calendar releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public String getSummaryPath() {
+        return summaryPath;
+    }
+
+    public void setSummaryPath(String summaryPath) {
+        this.summaryPath = summaryPath;
     }
 }
